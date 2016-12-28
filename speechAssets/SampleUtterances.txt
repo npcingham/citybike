@@ -1,0 +1,25 @@
+SetStationIntent manage my station
+SetStationIntent set my station to {stationName}
+SetStationIntent the name is {stationName}
+SetStationIntent the number is is {stationNumber}
+SetStationIntent my station name is {stationName}
+SetStationIntent my station number is {stationNumber}
+
+StatusRequestIntent what is the status
+StatusRequestIntent what is the station status
+StatusRequestIntent what's the station status
+StatusRequestIntent what's the status
+StatusRequestIntent how many bikes are there
+StatusRequestIntent tell me the number of bikes
+StatusRequestIntent tell me how many bikes
+StatusRequestIntent how many bikes
+
+AMAZON.YesIntent Yes
+AMAZON.NoIntent No
+
+AMAZON.HelpIntent Help
+AMAZON.HelpIntent I need help
+
+AMAZON.StopIntent Stop
+AMAZON.StopIntent Quit
+

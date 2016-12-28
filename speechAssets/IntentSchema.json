@@ -1,0 +1,23 @@
+
+{
+  "intents": [
+    {
+      "intent": "AskForStationIntent",
+      "slots":[
+          {
+          "name":"stationName",
+          "type":"LIST_OF_STATIONS"
+        },
+        {
+          "name":"stationNumber",
+          "type":"LIST_OF_NUMBERS"
+        }
+      ]
+    },
+
+{
+      "intent": "StatsRequestIntent"
+    },  
+    
+  ]
+}
