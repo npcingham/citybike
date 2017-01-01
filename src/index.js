@@ -33,7 +33,7 @@ var handlers = {
         
         console.log("*STATION NUMBER*"+ stationNumber);
         if (stationNumber == null) { // no slot
-            say = 'To add or change your station let me know your station number with no dots or periods by saying for example, my station number is seven two six zero zero nine.';
+            say = 'To save a station, let me know your station number with no dots or periods by saying for example, my station number is seven two six zero zero nine.';
         } else {
             // create and store session attributes
             this.attributes['stationNumber'] = stationNumber;
@@ -41,12 +41,18 @@ var handlers = {
             var dataset = require('./datafiles/stations.json');
             var stations = dataset["data"]["stations"];
             var stationDetail = lodash.filter(stations, { 'short_name': stationNumber } );
-            var stationName = stationDetail[0]["name"];
-            this.attributes['stationName'] = stationName;
-
-            var say = 'Your station name is ' + stationName +'. Do you want to see how many bikes there are?';
+            console.log("**STATIONDETAIL**" + stationDetail);
+            
+            if (stationDetail != ""){
+            	var stationName = stationDetail[0]["name"];
+            	this.attributes['stationName'] = stationName;
+              	var say = 'Your station, ' + stationName +', has been saved. Do you want to see how many bikes there are?';	
+            }
+            else {
+            	var say = 'I\'m sorry, the station number ' + stationNumber + ' doesn\'t seem to be valid. Please try again.' ;
+        	}
         }
-        this.emit(':ask', say, 'try again');
+        this.emit(':ask', say, say);
     },
     'AMAZON.YesIntent': function() {
 
