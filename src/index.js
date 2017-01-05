@@ -44,13 +44,13 @@ var handlers = {
             console.log("**STATIONDETAIL**" + stationDetail);
             
             if (stationDetail != ""){
-            	var stationName = stationDetail[0]["name"];
-            	this.attributes['stationName'] = stationName;
-              	var say = 'Your station, ' + stationName +', has been saved. Do you want to see how many bikes there are?';	
+                var stationName = stationDetail[0]["name"];
+                this.attributes['stationName'] = stationName;
+                var say = 'Your station, ' + stationName +', has been saved. Do you want to see how many bikes there are?'; 
             }
             else {
-            	var say = 'I\'m sorry, the station number ' + stationNumber + ' doesn\'t seem to be valid. Please try again.' ;
-        	}
+                var say = 'I\'m sorry, the station number ' + stationNumber + ' doesn\'t seem to be valid. Please try again.' ;
+            }
         }
         this.emit(':ask', say, say);
     },
@@ -124,6 +124,10 @@ var handlers = {
     },
 
     'AMAZON.StopIntent': function () {
+        this.emit(':tell','Goodbye, thanks for using City Bike');
+    },
+
+    'AMAZON.CancelIntent': function () {
         this.emit(':tell','Goodbye, thanks for using City Bike');
     }
 }
